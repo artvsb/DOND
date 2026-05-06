@@ -90,6 +90,9 @@ body {
         #FFD000,
         #C79200
     );
+    box-shadow:
+        inset 0 5px 4px rgba(255,255,255,0.5),
+        inset 0 -5px 4px rgba(0,0,0,0.3);
 }
 
 .container-side-bar-value p {
@@ -101,10 +104,13 @@ body {
 li.opened {
     background: radial-gradient(
         circle,
-        #c9bc29,
-        #805b00,
-        #8e3c01
+        #988c00,
+        #624600,
+        #642a00
     );
+    box-shadow:
+        inset 0 5px 4px rgba(160,82,45,0.5),
+        inset 0 -5px 4px rgba(0,0,0,0.3);
 }
 
 .side-bar {
@@ -126,7 +132,7 @@ li.opened {
     filter: brightness(1.4);
 }
 
-.case span {
+.case-number {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -153,7 +159,7 @@ li.opened {
     gap: 25px;
 }
 
-#main-board, .my-case {
+#main-board, .your-case {
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(0.2vh);
     padding: 24px;
@@ -166,7 +172,7 @@ li.opened {
     position: relative;
 }
 
-.my-case {
+.your-case {
     display: flex;
     flex-direction: column;
     width: 25vh;
@@ -175,12 +181,13 @@ li.opened {
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    transform: translateX(200%) translateY(200%);
+    transform: translateX(200%) translateY(180%);
     color: whitesmoke;
     text-shadow: 1px 2px 0 black;
     bottom: 20;
 }
 
-.my-case img {
+.your-case img {
     margin-left: 5px;
+    height: 100px;
 }
