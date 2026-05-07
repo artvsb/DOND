@@ -21,7 +21,7 @@ startButton.addEventListener("click", (evento) => {
 })
 
 function shuffle(array) {
-    for(let i = array.lenght - 1; i > 0; i--) {
+    for(let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
@@ -44,9 +44,27 @@ function setupCaseSelection() {
 function chooseYourCase(caseEl) {
     gameState.hasChosenCase = true;
     gameState.playerCase = caseEl;
+
     const yourCase = document.querySelector(".your-case");
     const value = caseEl.dataset.value;
-    console.log(`Value: ${value}`);
+    const caseNumber = caseEl.querySelector(".case-number").textContent
+    
+    yourCase.innerHTML = `
+        <span>Your Case</span>
+        <div class="case">
+            <img src="images/case.png">
+            <span class="case-number">${caseNumber}</span>
+        </div>    
+    `;
+
+    yourCase.dataset.value = value;
+
+    caseEl.classList.toggle("hidden");
+
+    console.log(`
+        Value: ${value}
+        Case: ${caseNumber}
+        `);
 }
 
 function handleCaseClick(caseEl) {
@@ -77,6 +95,13 @@ function assignValues() {
 
 function openCase(caseEl) {
     if(caseEl === gameState.playerCase) return;
-    const value = caseEl.dataset.value;
-    console.log(`Opened: ${value}`);
+    const caseValue = caseEl.dataset.value;
+    const values = document.querySelectorAll(".container-side-bar-value");
+    caseEl.classList.add("hidden");
+    values.forEach((value) => {
+        if (value.dataset.value === caseValue) {
+            value.classList.add("opened");
+        }
+    })
+    console.log(`Opened: ${caseValue}`);
 }
