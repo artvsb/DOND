@@ -143,6 +143,14 @@ footer {
 .case img {
     height: 100px;
     filter: brightness(1.4);
+    transition: 0.2s ease;
+}
+
+.case img:hover {
+    transform: scale(1.08);
+    filter: brightness(1.15);
+    box-shadow: 0 0 15px gold;
+    cursor: pointer;
 }
 
 .case-number {
